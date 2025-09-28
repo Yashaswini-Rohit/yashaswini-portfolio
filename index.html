@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yashaswini | Chartered Accountant</title>
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; background:#f7fafb; }
+    .hero { background: linear-gradient(135deg, #0f4757, #1189a0); color:#fff; text-align:center; padding:70px 16px; }
+    .tabs { display:flex; justify-content:center; background:#0f4757; padding:10px; position:sticky; top:0; z-index:30; }
+    .tab-btn { border:0; background:transparent; color:#d8eef3; padding:10px 14px; margin:0 4px; border-radius:8px; cursor:pointer; font-weight:600; }
+    .tab-btn[aria-selected="true"] { background:#fff; color:#0f4757; }
+    .container { max-width:960px; margin:20px auto; padding:0 16px; }
+    .card { background:#fff; padding:20px; margin:18px 0; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,.1); }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
+  </style>
+</head>
+<body>
+<header class="hero">
+  <img src="images/yashaswini.jpeg" alt="Yashaswini Photo" 
+       style="width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:12px; border:3px solid #fff;">
+  <h1>Yashaswini</h1>
+  <p>Chartered Accountant · Finance & Accounting Professional</p>
+</header>
+  <nav class="tabs">
+    <button class="tab-btn" aria-controls="about" aria-selected="true">About</button>
+    <button class="tab-btn" aria-controls="experience" aria-selected="false">Experience</button>
+    <button class="tab-btn" aria-controls="skills" aria-selected="false">Skills</button>
+    <button class="tab-btn" aria-controls="education" aria-selected="false">Education</button>
+    <button class="tab-btn" aria-controls="contact" aria-selected="false">Contact</button>
+  </nav>
+  <main class="container">
+    <section id="about" class="tab-panel active"><div class="card"><h2>About</h2><p>CA with 3–5 years of experience...</p></div></section>
+    <section id="experience" class="tab-panel"><div class="card"><h2>Experience</h2><p>Details from resume...</p></div></section>
+    <section id="skills" class="tab-panel"><div class="card"><h2>Skills</h2><p>Skills list...</p></div></section>
+    <section id="education" class="tab-panel">
+  <div class="card">
+    <h2>Education</h2>
+
+    <div style="display:flex; align-items:center; margin-bottom:16px;">
+      <img src="images/ica_logo.jpeg" alt="ICAI Logo" style="width:60px; height:60px; object-fit:contain; margin-right:12px;">
+      <div>
+        <a href="https://www.icai.org/">The Institute of Chartered Accountants of India</a>
+        <p><strong>Chartered Accountant (CA)</strong> – Auditing, Accounting and Taxation (2022)</p>
+      </div>
+    </div>
+
+    <hr>
+
+    <div style="display:flex; align-items:center; margin-bottom:16px;">
+      <img src="images/asc_logo.jpeg" alt="ASC College Logo" style="width:60px; height:60px; object-fit:contain; margin-right:12px;">
+      <div>
+        <a href="https://ascdegreecollege.ac.in/">ASC Degree College</a>
+        <p><strong>Bachelor of Commerce (B.Com)</strong>, Accounting and Finance (2014 – 2017)</p>
+      </div>
+    </div>
+
+    <hr>
+
+    <div style="display:flex; align-items:center;">
+      <img src="images/mes_logo.jpeg" alt="MES PU College Logo" style="width:60px; height:60px; object-fit:contain; margin-right:12px;">
+      <div>
+        <a href="https://mesmplpuc.in/">MES PU College of Arts, Commerce and Science</a>
+        <p><strong>Pre-University (PUC)</strong>, Business/Commerce, General (2012 – 2014)</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+    <section id="contact" class="tab-panel">
+  <div class="card">
+    <h2>Contact</h2>
+    <p><strong>Email:</strong> 
+      <a href="mailto:yashaswini.ramca@gmail.com">yashaswini.ramca@gmail.com</a>
+    </p>
+    <p><strong>LinkedIn:</strong> 
+      <a href="https://www.linkedin.com/in/yashaswini-ram" target="_blank">linkedin.com/in/yashaswini-ram</a>
+    </p>
+    <p><strong>Mobile:</strong> +91-8310867656</p>
+  </div>
+</section>
+  </main>
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+    function setActive(id){
+      panels.forEach(p => p.classList.remove('active'));
+      tabs.forEach(t => t.setAttribute('aria-selected','false'));
+      document.getElementById(id).classList.add('active');
+      document.querySelector(`[aria-controls="${id}"]`).setAttribute('aria-selected','true');
+    }
+    tabs.forEach(btn => btn.addEventListener('click', e => { e.preventDefault(); setActive(btn.getAttribute('aria-controls')); }));
+  </script>
+</body>
+</html>
